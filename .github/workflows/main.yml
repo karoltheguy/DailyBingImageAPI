@@ -34,12 +34,6 @@ jobs:
         timeout-minutes: 350
         run: |
           echo `date +"%Y-%m-%d %H:%M:%S"` > time.log
-          cp spider.py spider_dev.py
-          echo $SECRET > key.txt
-          sed -i '8 r key.txt' spider_dev.py
-          python spider_dev.py
-          rm -f key.txt
-          rm -f spider_dev.py
       - name: Commit files
         run: |
           git config --local user.email ${{ secrets.GIT_EMAIL }}
