@@ -35,6 +35,8 @@ jobs:
         run: |
           echo `date +"%Y-%m-%d %H:%M:%S"` > time.log
           python spider.py
+      - name: 'Purge CDN'
+        run: curl https://purge.jsdelivr.net/gh/k-rol/DailyBingImageAPI@latest/images/latest.png
       - name: Commit files
         run: |
           git config --local user.email ${{ secrets.GIT_EMAIL }}
