@@ -5,10 +5,11 @@ It then stores the previous ones on this repository.
 
 ### How to:
 
-####Get the latest one using JSDELIVR CDN links:
+#### Get the latest one using JSDELIVR CDN links:
 
 https://cdn.jsdelivr.net/gh/k-rol/DailyBingImageAPI@latest/images/latest.png
 
+*Github's cache may show you yesterday's image but the link above will be updated.
 ![](https://cdn.jsdelivr.net/gh/k-rol/DailyBingImageAPI@latest/images/latest.png)
 
 
