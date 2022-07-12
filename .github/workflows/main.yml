@@ -13,7 +13,7 @@ on:
     types: [started]
 
 env:
-  TZ: Asia/Shanghai
+  TZ: America/Montreal
 
 jobs:
   Bing-Spider:
@@ -43,12 +43,12 @@ jobs:
           rm -f spider_dev.py
       - name: Commit files
         run: |
-          git config --local user.email "i@ningkai.wang"
-          git config --local user.name "WangNingkai"
+          git config --local user.email ${{ secrets.GIT_EMAIL }}
+          git config --local user.name "Carol"
           git add -A
           git commit -m ":rocket: Fetch BingImage at $(date +'%Y-%m-%d %H:%M')" -a
       - name: 'Push changes'
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GIT_TOKEN }}
           force: true
