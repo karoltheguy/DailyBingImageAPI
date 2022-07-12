@@ -60,52 +60,7 @@ def getCookies(url):
     return cookies
 
 
-def getAccessToken(url):
-    tenant, mail = parseUrl(url)
-    cookies = getCookies(url)
-    url = "https://" + tenant + "/personal/" + mail + \
-        "/_api/web/GetListUsingPath(DecodedUrl=@a1)/RenderListDataAsStream?@a1='/personal/" + mail + \
-        "/Documents'&RootFolder=/personal/" + mail + \
-        "/Documents/&TryNewExperienceSingle=TRUE"
-
-    headers = {
-        'Accept': 'application/json;odata=verbose',
-        'Content-Type': 'application/json;odata=verbose',
-        'User-Agent': random.choice(USER_AGENTS)
-    }
-
-    payload = {
-        "parameters": {
-            "__metadata": {
-                "type": "SP.RenderListDataParameters"
-            },
-            "RenderOptions": 136967,
-            "AllowMultipleValueFilterForTaxonomyFields": True,
-            "AddRequiredFields": True
-        }
-    }
-
-    response = req.post(url,
-                        cookies=cookies,
-                        headers=headers,
-                        data=json.dumps(payload))
-
-    payload = json.loads(response.text)
-    token = payload['ListSchema']['.driveAccessToken'][13:]
-    api_url = payload['ListSchema']['.driveUrl'] + '/'
-    shared_folder = payload['ListData']['Row'][0]['FileRef'].split('/')[-1]
-    # print('提取 目录名:' + shared_folder)
-    # print('提取 AccessToken:' + token)
-    # print('提取 api_url:' + api_url)
-    return token, api_url, shared_folder
-
-
 def uploadImage(name, file):
-    """ 
-    OneDrive 上传
-    """
-    token, api_url, shared_folder = getAccessToken(secret)
-
     uploadpath = f'Images/Bing/{name}'
     headers = {
         'Authorization': 'Bearer ' + token,
