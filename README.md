@@ -1,31 +1,18 @@
-# Bing 每日图片 API
+# Daily Bing Image API
 
-### 使用方法
+This "API" fetch the new image everyday by using GitHub action (see workflow folder) and name it as latest.png.
+It then stores the previous ones on this repository.
 
-#### 最新图片
+### How to:
 
-例：https://cdn.jsdelivr.net/gh/WangNingkai/BingImageApi@latest/images/latest.png
+####Get the latest one using JSDELIVR CDN links:
 
-![](https://cdn.jsdelivr.net/gh/WangNingkai/BingImageApi@latest/images/latest.png)
+https://cdn.jsdelivr.net/gh/k-rol/DailyBingImageAPI@latest/images/latest.png
 
-```
-![](https://cdn.jsdelivr.net/gh/WangNingkai/BingImageApi@latest/images/latest.png)
-```
+![](https://cdn.jsdelivr.net/gh/k-rol/DailyBingImageAPI@latest/images/latest.png)
 
-#### 根据日期获取图片
 
-例：https://cdn.jsdelivr.net/gh/WangNingkai/BingImageApi@latest/images/日期.png
+#### Or get an image by date:
 
-![](https://cdn.jsdelivr.net/gh/WangNingkai/BingImageApi@latest/images/20200726.png)
-```
-![](https://cdn.jsdelivr.net/gh/WangNingkai/BingImageApi@latest/images/20200726.png)
-```
+https://cdn.jsdelivr.net/gh/k-rol/DailyBingImageAPI@latest/images/20220420.png
 
-#### 根据日期获取图片JSON数据
-
-例：https://cdn.jsdelivr.net/gh/WangNingkai/BingImageApi@latest/json/日期.json
-
-```
-
-https://cdn.jsdelivr.net/gh/WangNingkai/BingImageApi@latest/json/20200726.json
-```
