@@ -19,6 +19,9 @@ env:
 jobs:
   Bing-Spider:
     runs-on: ubuntu-latest
+    permissions:
+      actions: write
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
