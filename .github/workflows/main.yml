@@ -20,7 +20,7 @@ jobs:
   Bing-Spider:
     runs-on: ubuntu-latest
     permissions:
-      actions: write
+      contents: write
 
     steps:
       - name: Checkout
